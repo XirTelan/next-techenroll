@@ -26,26 +26,27 @@ model Student {
   birthplace          String
   residentialAddress  String
   registrationAddress String
-  phone               String
+  phone               String?
   email               String?                @unique
   snils               String
-  parentsContacts     String
+  parentsContacts     String?
   createdAt           DateTime               @default(now()) @map(name: "created_at")
   updatedAt           DateTime               @updatedAt @map(name: "updated_at")
   specialities        StudentsSpecialities[]
 }
 
 model User {
-  id            String    @id @default(cuid())
-  name          String?
-  email         String?   @unique
-  emailVerified DateTime?
-  image         String?
-  sessions      Session[]
-  Account       Account[]
-  role          String    @default("user")
-  createdAt     DateTime  @default(now()) @map(name: "created_at")
-  updatedAt     DateTime  @updatedAt @map(name: "updated_at")
+  id             String    @id @default(cuid())
+  name           String?
+  email          String?   @unique
+  emailVerified  DateTime?
+  hashedPassword String
+  image          String?
+  sessions       Session[]
+  Account        Account[]
+  role           String    @default("user")
+  createdAt      DateTime  @default(now()) @map(name: "created_at")
+  updatedAt      DateTime  @updatedAt @map(name: "updated_at")
 }
 
 model Session {
