@@ -16,7 +16,7 @@ model Student {
   middleName          String?
   secondName          String
   dateOfBirth         DateTime
-  genderId            Int
+  genderId            String
   gradeAvg            Float
   nationality         String
   passSn              String
